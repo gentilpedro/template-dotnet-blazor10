@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageType>Template</PackageType>
+    <PackageId>GentilPedro.Templates.Blazor10</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Title>Gentil Pedro - Blazor Web App Template (.NET 10)</Title>
+    <Authors>Gentil Pedro</Authors>
+    <Description>Template dotnet new de um Blazor Web App em .NET 10 (interatividade Auto) com Serilog (Console + File) já configurado.</Description>
+    <PackageTags>dotnet-new;templates;blazor;net10</PackageTags>
+    <RepositoryUrl>https://github.com/gentilpedro/template-dotnet-blazor10</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/gentilpedro/template-dotnet-blazor10</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <NoWarn>NU5128</NoWarn>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**;content\**\node_modules\**;content\**\logs\**" />
+    <Compile Remove="**\*.cs" />
+  </ItemGroup>
+
+</Project>
