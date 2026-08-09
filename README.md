@@ -39,6 +39,20 @@ dotnet new update
 - Blazor Web App .NET 10, `InteractiveAuto` (projeto principal + projeto `.Client` para os componentes WebAssembly)
 - Serilog.AspNetCore com sinks de Console e File
 - Estrutura padrão de Components/Layout/Pages
+- Tema claro/escuro pronto (ver abaixo)
+
+## Tema claro/escuro
+
+O botão de troca de tema fica na barra superior do `MainLayout`. Como funciona:
+
+- O tema é o `data-bs-theme` do `<html>`, que é o mecanismo nativo do **Bootstrap 5.3** — todos os componentes do Bootstrap se adaptam sozinhos.
+- `wwwroot/js/theme.js` é carregado de forma **bloqueante no `<head>`** (`Components/App.razor`), então o tema é aplicado antes do primeiro paint e não há flash de tela clara.
+- Sem escolha salva, segue o tema do sistema (`prefers-color-scheme`); ao clicar no botão a preferência é fixada em `localStorage` (chave `theme`).
+- O botão é HTML puro chamando `appTheme.toggle()`, de propósito: funciona em páginas com render mode estático, sem exigir circuito Server nem baixar o runtime WebAssembly só para trocar o tema.
+- A navegação aprimorada do Blazor sincroniza o DOM com o HTML do servidor e reverteria o atributo do `<html>`; por isso `App.razor` reaplica o tema no evento `enhancedload`.
+- Nos seus estilos, prefira as variáveis do Bootstrap (`var(--bs-body-bg)`, `var(--bs-body-color)`, `var(--bs-border-color)`, …) a cores fixas — elas já trocam com o tema.
+
+API disponível no browser: `appTheme.current()`, `appTheme.set('light' | 'dark' | null)`, `appTheme.toggle()`.
 
 ## Licença
 
