@@ -2,9 +2,9 @@
 
 Template `dotnet new` de um **Blazor Web App (.NET 10)** com interatividade `Auto` (Server no primeiro acesso, depois WebAssembly) e **Serilog** (Console + File) já configurado.
 
-## Instalar
+## Como criar um projeto novo
 
-O pacote é publicado no feed NuGet do GitHub Packages a cada push na `main` (veja `.github/workflows/publish.yml`). Para instalar, primeiro adicione o feed como fonte NuGet (uma vez só, nesta máquina):
+**1. Configure o GitHub Packages como fonte NuGet** (uma vez só, nesta máquina — precisa de um token seu com escopo `read:packages`):
 
 ```bash
 dotnet nuget add source https://nuget.pkg.github.com/gentilpedro/index.json \
@@ -14,25 +14,25 @@ dotnet nuget add source https://nuget.pkg.github.com/gentilpedro/index.json \
   --store-password-in-clear-text
 ```
 
-Depois instale o template:
+**2. Instale o template:**
 
 ```bash
 dotnet new install GentilPedro.Templates.Blazor10
 ```
 
-## Usar
+**3. Crie o projeto:**
 
 ```bash
 dotnet new blazor10 -n MeuApp
 ```
 
-## Atualizar
+### Atualizar para a versão mais nova
+
+O pacote é republicado a cada push na `main` deste repositório. Pra pegar a versão mais recente:
 
 ```bash
 dotnet new update
 ```
-
-Isso verifica e atualiza automaticamente os pacotes de template instalados a partir da fonte NuGet configurada.
 
 ## O que vem incluído
 
