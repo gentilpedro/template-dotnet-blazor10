@@ -1,10 +1,20 @@
 {
   "extraKnownMarketplaces": {
     "impeccable": {
-      "source": { "source": "github", "repo": "pbakaus/impeccable" }
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "gentilpedro-skills": {
+      "source": {
+        "source": "github",
+        "repo": "gentilpedro/claude-skills"
+      }
     }
   },
   "enabledPlugins": {
-    "impeccable@impeccable": true
+    "impeccable@impeccable": true,
+    "gentilpedro@gentilpedro-skills": true
   }
 }
